@@ -21,6 +21,7 @@ Figure 1: Stock value 2017.
 
 Figure 2: Stock Value 2018.
 
+![Stocks_2018](https://user-images.githubusercontent.com/90812456/135688345-55055907-a7d2-4cdd-b14e-7598561cbe76.png)
 
 
 ## Improved Run-Time Efficiency with Refactored Code
@@ -40,6 +41,7 @@ Figure 5: 2017 Run-time with Refactored code:
                 
 
 Figure 6: 2018 Run-time with Refactored code:
+
 ![Code_run_2018](https://user-images.githubusercontent.com/90812456/135687877-7a3690e3-c7a6-4315-93ed-ce0359d57011.png)
 
 ______
