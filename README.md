@@ -16,11 +16,12 @@ _________________
 
 Figure 1: Stock value 2017.
 
-<img width="301" alt="Capture2017" src="https://user-images.githubusercontent.com/90812456/135673421-1b713c10-2ce2-44a8-8afe-c2b103643651.PNG">
+![Stocks_2017](https://user-images.githubusercontent.com/90812456/135687402-6d3b6351-8c3a-483d-a018-e7bce2b68059.png)
+
 
 Figure 2: Stock Value 2018.
 
-<img width="303" alt="Capture2018" src="https://user-images.githubusercontent.com/90812456/135673431-605154f5-587e-43e4-9e1d-aa72df4be122.PNG">
+
 
 ## Improved Run-Time Efficiency with Refactored Code
 #### The second portion of this analysis consisted of refactoring the VBA code to decrease repetition in script and increase running efficiency. After cleaning up the code, run-times for the scripts decreased from over 1 second with the original code (Figure 3 & 4) to an average of 0.25 seconds per run with refactored Scripts. (Figure 5 & 6).
@@ -33,13 +34,13 @@ Figure 3: 2017 Run-time with original code:
 
 <img width="162" alt="2018_Run_Time_First_Code" src="https://user-images.githubusercontent.com/90812456/135678513-7d2b0813-3f6b-456a-80a3-cbd9a75be446.PNG">
 
-Figure 5: 2017 Run-time with Refactored code:
-
-<img width="147" alt="VBA_Challenge_2018" src="https://user-images.githubusercontent.com/90812456/135673227-2ea8593b-7144-4912-b112-e8178739f9fe.png">
+Figure 5: 2017 Run-time with Refactored code:                                        
+                         
+![Code_run_2017](https://user-images.githubusercontent.com/90812456/135687952-361d373d-f8c4-4012-a9c8-4cff8138888f.png)
+                
 
 Figure 6: 2018 Run-time with Refactored code:
-
-<img width="160" alt="VBA_Challenge_2017" src="https://user-images.githubusercontent.com/90812456/135673209-f9d73de5-b98c-492f-b769-c57bdfe06721.png">
+![Code_run_2018](https://user-images.githubusercontent.com/90812456/135687877-7a3690e3-c7a6-4315-93ed-ce0359d57011.png)
 
 ______
 # 3. Summary:
