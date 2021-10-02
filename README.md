@@ -25,24 +25,105 @@ Figure 2: Stock Value 2018.
 
 
 ## Improved Run-Time Efficiency with Refactored Code
-#### The second portion of this analysis consisted of refactoring the VBA code to decrease repetition in script and increase running efficiency. After cleaning up the code, run-times for the scripts decreased from over 1 second with the original code (Figure 3 & 4) to an average of 0.25 seconds per run with refactored Scripts. (Figure 5 & 6).
+#### A primary goal of this analysis consisted of refactoring the VBA code to decrease repetition in script and increase running efficiency. After cleaning up the code, run-times for the scripts decreased from over 1 second with the original code (Figure 3 & 4) to an average of 0.25 seconds per run with refactored Scripts. (Figure 5 & 6).
 
 Figure 3: 2017 Run-time with original code:
 
-<img width="164" alt="2017_Run_time_First_Code" src="https://user-images.githubusercontent.com/90812456/135678492-028120a5-ed6d-4114-9430-533f19296ba8.PNG">
+![code_run_original_2017](https://user-images.githubusercontent.com/90812456/135701425-2c5d6396-dd18-4a63-8abe-3de04810ba7f.png)
 
-Figure 3: 2017 Run-time with original code:
+Figure 3: 2018 Run-time with original code:
 
-<img width="162" alt="2018_Run_Time_First_Code" src="https://user-images.githubusercontent.com/90812456/135678513-7d2b0813-3f6b-456a-80a3-cbd9a75be446.PNG">
+![code_run_original_2018](https://user-images.githubusercontent.com/90812456/135701443-9349be62-d001-4c7f-981f-7fdeaa0c4886.png)
 
 Figure 5: 2017 Run-time with Refactored code:                                        
-                         
+                      
 ![Code_run_2017](https://user-images.githubusercontent.com/90812456/135687952-361d373d-f8c4-4012-a9c8-4cff8138888f.png)
-                
-
+          
+          
 Figure 6: 2018 Run-time with Refactored code:
 
 ![Code_run_2018](https://user-images.githubusercontent.com/90812456/135687877-7a3690e3-c7a6-4315-93ed-ce0359d57011.png)
+
+## Refactored Code:
+#### By Indexing a variable in the VBA language, the coder was able to reduce the number of times the program had to loop, simplifying the code and enhancing run-time efficiency:
+
+##Refactored code:
+```
+'1a) Create a ticker Index
+    ''Ticker Index is an array-based variable I created to return reference values from tables faster.
+
+    tickerIndex = 0
+
+
+'1b) Create three output arrays
+    ''These arrays are what will be referenced by Ticker Index
+    
+    Dim tickerVolumes(11) As Long
+    Dim tickerStartingPrices(11) As Single
+    Dim tickerEndingPrices(11) As Single
+
+
+''2a) Create a for loop to initialize the tickerVolumes to zero
+' If the next row’s ticker doesn’t match, increase the tickerIndex
+
+    For i = 0 To 11
+    
+    tickerVolumes(i) = 0
+    tickerStartingPrices(i) = 0
+    tickerEndingPrices(i) = 0
+    
+Next i
+
+''2b) Loop over all the rows in the spreadsheet
+
+    For i = 2 To RowCount
+
+
+'3a) Increase volume for current ticker
+    
+    tickerVolumes(tickerIndex) = tickerVolumes(tickerIndex) + Cells(i, 8).Value
+    
+    
+
+'3b) Check if the current row is the first row with the selected tickerIndex
+'If  Then
+    
+        
+    If Cells(i - 1, 1).Value <> tickers(tickerIndex) And Cells(i, 1).Value = tickers(tickerIndex) Then tickerStartingPrices(tickerIndex) = Cells(i, 6).Value
+    
+
+     
+'3c) check if the current row is the last row with the selected ticker
+'If  Then
+     
+    If Cells(i + 1, 1).Value <> tickers(tickerIndex) And Cells(i, 1).Value = tickers(tickerIndex) Then tickerEndingPrices(tickerIndex) = Cells(i, 6).Value
+     
+
+
+'3d Increase the tickerIndex
+'If Then
+         
+    If Cells(i, 1).Value = tickers(tickerIndex) And Cells(i + 1, 1).Value <> tickers(tickerIndex) Then tickerIndex = tickerIndex + 1
+            
+            
+
+Next i
+
+'4) '4) Loop through your arrays to output the Ticker, Total Daily Volume, and Return
+   
+    
+Worksheets("All Stocks Analysis").Activate
+
+For i = 0 To 11
+    
+    
+    Cells(4 + i, 1).Value = tickers(i)
+    Cells(4 + i, 2).Value = tickerVolumes(i)
+    Cells(4 + i, 3).Value = tickerEndingPrices(i) / tickerStartingPrices(i) - 1
+    
+    
+Next i
+```
 
 ______
 # 3. Summary:
